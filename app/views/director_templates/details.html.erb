@@ -1,1 +1,12 @@
+<%= params %>
 
+<h1>Director #<%= @the_id %> Details</h1>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= Director.where({ :id => params.fetch("the_id") }).at(0) %>
+  </dd>
+</dl>

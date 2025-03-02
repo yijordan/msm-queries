@@ -10,7 +10,7 @@
     <th></th>
   </tr>
 
-  <% Director.all.each do |a_director| %>
+  <% Director.order({:dob => :desc}).each do |a_director| %>
   <tr>
     <td><%= a_director.id %></td>
     <td><img src="<%= a_director.image %>" width="100"></td>
