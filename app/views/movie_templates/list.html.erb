@@ -11,12 +11,13 @@
   </tr>
 
   <% Movie.order({:year => :desc, :title => :asc}).each do |a_movie| %>
+    <% @movies_directors_name = Director.where({ :id => a_movie.director_id}).at(0) %>
   <tr>
     <td><%= a_movie.id %></td>
     <td><img src="<%= a_movie.image %>" width="250"></td>
     <td><%= a_movie.title %></td>
     <td><%= a_movie.year %></td>
-    <td><%= a_movie.director_id %></td>
+    <td><%= @movies_directors_name.name %></td>
     <td><a href="/movies/<%= a_movie.id %>">Show Details</a></td>
   </tr>
   <% end %>
