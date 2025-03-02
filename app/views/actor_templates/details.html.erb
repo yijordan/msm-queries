@@ -56,12 +56,14 @@
   </tr>
 
 
-  <% @roles.all.each do |a_role| %>
+  <% @actors_movies.all.each do |a_movie| %>
+  
   <tr>
-    <td><%= a_role.movie_id%></td>
-    <td><%= %>
-    <td><%= a_role.name%></td>
-    <td><a href="/movies/<%= a_role.id %>">Show Details</a></td>
+    <td><%= a_movie.title %></td>
+    <td><%= a_movie.year %>
+    <td><%= Director.where({ :id => a_movie.director_id}).at(0).name%></td>
+    <td><%= @roles.name %></td>
+    <td><a href="/movies/<%= a_movie.id %>">Show Details</a></td>
   </tr>
   <% end %>
 
