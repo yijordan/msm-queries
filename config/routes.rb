@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get("/directors/:the_id", { :controller => "directors", :action => "show" })
 
   get("/actors", { :controller => "actors", :action => "index" })
+  get("/actors/:the_id", { :controller => "actors", :action => "show" })
 
-  get("/characters", { :controller => "characters", :action => "index"})
+  get("/characters", { :controller => "characters", :action => "index" })
 
 end
