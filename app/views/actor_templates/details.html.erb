@@ -20,7 +20,7 @@
     Bio
   </dt>
   <dd>
-    <%= @the_actor.dob %>
+    <%= @the_actor.bio %>
   </dd>
   <dt>
     Image
@@ -46,26 +46,23 @@
 
 <h2>Filmography</h2>
 
-<!--<table border="1">
+<table border="1">
   <tr>
-    <th>ID</th>
-    <th>Image</th>
     <th>Title</th>
     <th>Year</th>
     <th>Director</th>
+    <th>Character name</th>
     <th></th>
   </tr>
 
-  <%# @directors_movies.each do |a_movie| %>-->
-<!--  <tr>
-    <td><%#= a_movie.id %></td>
-    <td><img src="<%#= a_movie.image %>" width="250"></td>
-    <td><%#= a_movie.title %></td>
-    <td><%#= a_movie.year %></td>
-    <td><%#= @the_director.name%></td>
-    <td><a href="/movies/<%#= a_movie.id %>">Show Details</a></td>
+
+  <% @roles.all.each do |a_role| %>
+  <tr>
+    <td><%= a_role.movie_id%></td>
+    <td><%= %>
+    <td><%= a_role.name%></td>
+    <td><a href="/movies/<%= a_role.id %>">Show Details</a></td>
   </tr>
-  <%# end %>-->
-<!--
+  <% end %>
+
 </table>
--->
