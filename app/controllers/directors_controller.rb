@@ -3,9 +3,15 @@ class DirectorsController < ApplicationController
     render({ :template => "director_templates/list"})
   end
   def youngest
+    @youngest_dob = Director.maximum(:dob)
+    @youngest_dob_strftime = @youngest_dob.strftime("%B %e, %Y")
+    @youngest_director = Director.where({ :dob => @youngest_dob}).at(0)
     render({ :template => "director_templates/youngest"})
   end
   def eldest
+    @eldest_dob = Director.minimum(:dob)
+    @eldest_dob_strftime = @eldest_dob.strftime("%B %e, %Y")
+    @eldest_director = Director.where({ :dob => @eldest_dob}).at(0)
     render({ :template => "director_templates/eldest"})
   end
   def show
